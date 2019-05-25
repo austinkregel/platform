@@ -1,6 +1,12 @@
 # Platform
 A potentially super powerful way to stop writing all the boiler plate code every time you want to make a new package for your favorite platform.
 
+## Install
+```bash
+composer require global kregel/platform
+```
+
+### Usage
 ```bash
 platform make:package {name}
     {--type=base : The template type to copy from.}
