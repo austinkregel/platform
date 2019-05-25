@@ -4,34 +4,15 @@ namespace App\Commands;
 
 use App\Project;
 use App\TemplateHandlers\AbstractTemplateHandler;
-use GuzzleHttp\Client;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 use RuntimeException;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Process\Process;
-use ZipArchive;
 
 class NewProject extends Command
 {
-    /**
-     * @const array|string[]
-     */
-    protected const SUPPORTED_TYPES = [
-        'laravel',
-        'php',
-    ];
-
-    /**
-     * @const array|string[]
-     */
-    protected const SUPPORTED_LANGUAGE = [
-        'php'
-    ];
-
     /**
      * @const string
      */
@@ -100,7 +81,7 @@ class NewProject extends Command
 
         $this->download();
 
-        $this->cleanUp($this->project->get('location'));
+        $this->cleanUp();
 
         $templateHandler = sprintf(static::TEMPLATE_HANDLER_TEMPLATE, ucfirst($this->project->get('type')), ucfirst($this->project->get('language')));
 
