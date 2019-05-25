@@ -3,7 +3,7 @@ A potentially super powerful way to stop writing all the boiler plate code every
 
 ## Install
 ```bash
-composer require global kregel/platform
+composer global require kregel/platform
 ```
 
 ### Usage
